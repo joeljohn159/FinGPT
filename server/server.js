@@ -1,8 +1,9 @@
 const express = require('express');
 const app = express();
 const authRoutes = require('./routes/authRoutes')
+const financialRoutes = require('./routes/financialRoutes.js');
 
-
+require('dotenv').config();
 const cors = require('cors');
 const corsOptions = { origin: ['http://localhost:5173'], }
 const connectDB = require('./config/db')
@@ -14,9 +15,10 @@ app.use(cors(corsOptions));
 app.use(express.json())
 connectDB()
 
-app.use('/api/auth', authRoutes)
+app.use('/api/auth', authRoutes);
+app.use('/api/financial', financialRoutes);
 
 
-app.listen(PORT, () => {
+app.listen(8080, () => {
     console.log('SERVER UP AND RUNNING IN 8080')
 })

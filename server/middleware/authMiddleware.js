@@ -9,13 +9,15 @@ const authMiddleware = (req, res, next) => {
         return res.status(401).json({ message: 'Auth Token Required' })
     }
 
-    try {
-        const decodeToken = jwt.verify(token, JWT_SECRET);
-        req.user = decodeToken
+
+    jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
+        if (err) {
+            return res.status(403).json({ error: 'Invalid or expired token.' });
+        }
+        req.user = user;
         next();
-    } catch (error) {
-        res.status(401).json({ message: 'Invalid or expired token' })
-    }
+    });
+
 }
 
-module.exports = authMiddleware;
+module.exports = { authMiddleware }
