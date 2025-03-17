@@ -17,6 +17,6 @@ connectDB()
 app.use('/api/auth', authRoutes)
 
 
-app.listen(8080, () => {
+app.listen(PORT, () => {
     console.log('SERVER UP AND RUNNING IN 8080')
 })
