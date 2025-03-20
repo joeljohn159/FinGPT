@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
-import './../styles/FinancialGlossary.css';
+import './../styles/financialGlossary.css';
 
 function FinancialGlossary() {
     const [terms, setTerms] = useState([]);
