@@ -1,0 +1,81 @@
+.history-panel {
+    width: 0;
+    background-color: #f4f4f4;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.1);
+    transition: width 0.3s ease;
+    overflow-y: auto;
+    z-index: 1000;
+
+}
+
+.history-panel.active {
+    width: 300px;
+}
+
+
+.history-panel-header {
+    padding: 10px;
+    background-color: #1a344c;
+    color: white;
+    text-align: center;
+}
+
+
+.history-panel-body {
+    padding: 20px;
+    overflow-y: auto;
+    max-height: calc(100vh - 50px);
+
+}
+
+
+.history-item {
+    padding: 10px;
+    background-color: #fff;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.history-item p {
+    margin: 0;
+}
+
+.history-toggle-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.history-toggle-btn:hover {
+    background-color: #45a049;
+}
+
+
+.chat-container .history-panel.active+.chat-area {
+    margin-left: 300px;
+
+}
+
+
+.chat-area {
+    flex: 1;
+    padding: 20px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow-y: auto;
+    margin-left: 0;
+    transition: margin-left 0.3s ease;
+}
