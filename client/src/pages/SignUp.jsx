@@ -43,6 +43,10 @@ function SignUp() {
         }
     };
 
+    const handleNavigateToLogin = () => {
+        navigate('/login');  // Navigate programmatically to /login
+    };
+
     return (
         <div className="auth-container">
             <h2>Sign Up</h2>
@@ -74,7 +78,10 @@ function SignUp() {
                 <button type="submit">Sign Up</button>
 
                 <p>
-                    Already have an account? <a href="/login">Login here</a>
+                    Already have an account?{' '}
+                    <button type="button" onClick={handleNavigateToLogin} className="link-button">
+                        Login here
+                    </button>
                 </p>
             </form>
         </div>
