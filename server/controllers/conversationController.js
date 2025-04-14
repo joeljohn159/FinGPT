@@ -8,11 +8,11 @@ const startSession = async (req, res) => {
     try {
         const historyID = new Date().toISOString();
 
-        // Create a session without the 'system' message
+
         const newSession = new Session({
             userId,
             historyID,
-            messages: [] // No 'system' message in the initial session
+            messages: []
         });
 
         await newSession.save();
@@ -24,7 +24,7 @@ const startSession = async (req, res) => {
     }
 };
 
-// Add a message to the session
+
 const addMessage = async (req, res) => {
     const { historyID, message } = req.body;
     const { userId } = req.user;
@@ -40,10 +40,10 @@ const addMessage = async (req, res) => {
             return res.status(404).json({ error: 'Session not found' });
         }
 
-        // Add user message to the session
+
         session.messages.push({ role: 'user', content: message });
 
-        // Get the assistant's response and add it to the session
+
         const assistantReply = await getFinancialAdvice(session.messages);
         session.messages.push({ role: 'assistant', content: assistantReply });
 
@@ -56,7 +56,7 @@ const addMessage = async (req, res) => {
     }
 };
 
-// Retrieve all session history for a user
+
 const getAllUserHistory = async (req, res) => {
     const { userId } = req.user;
 

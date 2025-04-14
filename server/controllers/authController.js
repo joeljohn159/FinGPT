@@ -1,3 +1,4 @@
+const User = require('../models/User');
 const authService = require('../services/authService');
 
 
@@ -25,4 +26,38 @@ const login = async (req, res) => {
 }
 
 
-module.exports = { login, signup }
+
+const updateProfile = async (req, res) => {
+    const { email, firstName, lastName, age, bio, address, phoneNumber, profilePicture, dateOfBirth, socialLinks } = req.body;
+
+    try {
+
+        const updatedUser = await User.findOneAndUpdate(
+            { email },
+            {
+                firstName,
+                lastName,
+                age,
+                bio,
+                address,
+                phoneNumber,
+                profilePicture,
+                dateOfBirth,
+                socialLinks,
+            },
+            { new: true }
+        );
+
+        if (!updatedUser) {
+            return res.status(400).json({ message: 'User not found' });
+        }
+
+        res.status(200).json({
+            message: 'Profile updated successfully'
+        });
+    } catch (error) {
+        res.status(400).json({ message: error.message });
+    }
+};
+
+module.exports = { login, signup, updateProfile }
