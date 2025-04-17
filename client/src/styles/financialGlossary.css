@@ -1,61 +1,340 @@
-/* src/pages/FinancialGlossary.css */
 .glossary-container {
-    width: 80%;
-    margin: 0 auto;
+    width: 95%;
+    max-width: 100rem;
+    /* Increased from 80rem for wider layout */
+    margin: 2rem auto;
     text-align: center;
+    background-color: #f4f7fc;
+    padding: 2rem;
+    border-radius: 12px;
+    box-sizing: border-box;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.dark-mode .glossary-container {
+    background-color: #222;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 2rem;
+}
+
+.dark-mode h2 {
+    color: #fff;
 }
 
 .filters {
     display: flex;
     justify-content: center;
-    gap: 20px;
-    margin-bottom: 20px;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
 }
 
 .filters input,
 .filters select,
 .filters button {
-    padding: 10px;
-    font-size: 16px;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    color: #333;
+    transition: border-color 0.3s ease, background-color 0.3s ease, transform 0.2s ease;
+}
+
+.dark-mode .filters input,
+.dark-mode .filters select,
+.dark-mode .filters button {
+    border-color: #555;
+    background-color: #444;
+    color: #fff;
+}
+
+.filters input:focus,
+.filters select:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+.dark-mode .filters input:focus,
+.dark-mode .filters select:focus {
+    border-color: #1e90ff;
+}
+
+.filters button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.dark-mode .filters button {
+    background-color: #1e90ff;
+}
+
+.filters button:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+}
+
+.dark-mode .filters button:hover {
+    background-color: #187bcd;
 }
 
 .terms-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
-    margin-top: 20px;
+    gap: 1.5rem;
+    margin-top: 2rem;
 }
 
-.terms-list div {
-    background-color: #f0f0f0;
-    padding: 15px;
-    border-radius: 8px;
+.term-card {
+    background-color: #fff;
+    padding: 1.25rem;
+    border-radius: 10px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.terms-list div:hover {
-    background-color: #e0e0e0;
+.dark-mode .term-card {
+    background-color: #333;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
 }
 
-.term-detail {
-    background-color: #f9f9f9;
-    padding: 20px;
-    margin-top: 20px;
-    border-radius: 8px;
+.term-card:hover {
+    background-color: #e6f0fa;
+    transform: translateY(-5px);
 }
 
-h2 {
-    font-size: 2em;
-    margin-bottom: 20px;
+.dark-mode .term-card:hover {
+    background-color: #444;
 }
 
-h3 {
-    font-size: 1.2em;
-    margin-bottom: 10px;
+.term-card h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 0.75rem;
 }
 
-p {
-    font-size: 1em;
+.dark-mode .term-card h3 {
+    color: #fff;
+}
+
+.term-card p {
+    font-size: 0.95rem;
     color: #555;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.dark-mode .term-card p {
+    color: #ddd;
+}
+
+.no-terms {
+    font-size: 1.2rem;
+    color: #777;
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.dark-mode .no-terms {
+    color: #aaa;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 2.5rem;
+    border-radius: 12px;
+    max-width: 700px;
+    width: 90%;
+    max-height: 85vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode .modal-content {
+    background-color: #333;
+}
+
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.dark-mode .modal-close {
+    color: #fff;
+}
+
+.modal-close:hover {
+    color: #e74c3c;
+}
+
+.dark-mode .modal-close:hover {
+    color: #ff5555;
+}
+
+.modal-content h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+
+.dark-mode .modal-content h3 {
+    color: #fff;
+}
+
+.modal-content p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+}
+
+.dark-mode .modal-content p {
+    color: #ddd;
+}
+
+.resource-links {
+    margin-top: 1.5rem;
+}
+
+.resource-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.resource-links li {
+    margin-bottom: 0.75rem;
+}
+
+.resource-links a {
+    color: #3498db;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.dark-mode .resource-links a {
+    color: #1e90ff;
+}
+
+.resource-links a:hover {
+    text-decoration: underline;
+    color: #2980b9;
+}
+
+.dark-mode .resource-links a:hover {
+    color: #187bcd;
+}
+
+.youtube-embed {
+    margin-top: 2rem;
+}
+
+.youtube-embed iframe {
+    border-radius: 10px;
+    width: 100%;
+    max-width: 600px;
+}
+
+@media (max-width: 768px) {
+    .glossary-container {
+        width: 98%;
+        padding: 1.5rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .filters {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .filters input,
+    .filters select,
+    .filters button {
+        width: 100%;
+        max-width: 350px;
+    }
+
+    .terms-list {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    }
+
+    .modal-content {
+        width: 95%;
+        padding: 2rem;
+        max-width: 600px;
+    }
+
+    .modal-content h3 {
+        font-size: 1.8rem;
+    }
+
+    .modal-content p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h2 {
+        font-size: 1.75rem;
+    }
+
+    .term-card h3 {
+        font-size: 1.1rem;
+    }
+
+    .term-card p {
+        font-size: 0.9rem;
+    }
+
+    .modal-content {
+        padding: 1.5rem;
+    }
+
+    .modal-content h3 {
+        font-size: 1.5rem;
+    }
+
+    .modal-content p {
+        font-size: 0.95rem;
+    }
+
+    .youtube-embed iframe {
+        height: 200px;
+    }
 }

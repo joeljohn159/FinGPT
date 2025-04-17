@@ -6,7 +6,6 @@ require('dotenv').config();
 // Controller to fetch news
 const getNews = async (req, res) => {
     const { keywords = 'finance', language = 'en', country = 'US' } = req.query;
-
     try {
 
         const response = await currentsapi.search({
@@ -14,7 +13,6 @@ const getNews = async (req, res) => {
             language: language,
             country: country
         });
-
 
         res.status(200).json(response);
     } catch (error) {

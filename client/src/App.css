@@ -1,4 +1,4 @@
-#root {
+/* #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
@@ -39,4 +39,98 @@
 
 .read-the-docs {
   color: #888;
+} */
+
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f8f8f8;
+  border-bottom: 1px solid #e7e7e7;
+}
+
+.dark-mode .header {
+  background-color: #333;
+  border-bottom: 1px solid #555;
+}
+
+.navbar {
+  position: relative;
+}
+
+.settings-menu {
+  position: relative;
+}
+
+.settings-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #ffffff;
+  border: 1px solid #e7e7e7;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  min-width: 200px;
+}
+
+.dark-mode .dropdown-menu {
+  background-color: #444;
+  border: 1px solid #666;
+}
+
+.dropdown-item {
+  display: block;
+  padding: 10px 15px;
+  color: #333;
+  text-decoration: none;
+  font-size: 16px;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+}
+
+.dark-mode .dropdown-item {
+  color: #fff;
+}
+
+.dropdown-item:hover {
+  background-color: #f0f0f0;
+}
+
+.dark-mode .dropdown-item:hover {
+  background-color: #555;
+}
+
+.logout-button {
+  color: #ff4d4f;
+}
+
+.logout-button:hover {
+  background-color: #ffe6e6;
+}
+
+.dark-mode .logout-button {
+  color: #ff6666;
+}
+
+.dark-mode .logout-button:hover {
+  background-color: #663333;
+}
+
+.dark-mode-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
 }

@@ -1,0 +1,101 @@
+src/styles/navbar.css
+
+/* Header styles */
+.header {
+    background-color: #1a344c;
+    color: white;
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    font-family: 'Arial', sans-serif;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* Navbar container */
+.navbar {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.navbar ul {
+    display: flex;
+
+    flex-direction: row;
+    list-style-type: none;
+    padding: 0;
+}
+
+.navbar ul li {
+    margin: 10px 0;
+    padding: 0 10px;
+}
+
+.navbar-link {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1.2rem;
+    padding: 10px 15px;
+    background-color: grey;
+    border-radius: 5px;
+    display: inline-block;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar-link:hover {
+    background-color: #0056b3;
+    color: #ff9800;
+    /* Orange text on hover */
+}
+
+/* Dark Mode Toggle Button */
+.dark-mode-toggle {
+    background-color: #ff9800;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dark-mode-toggle:hover {
+    background-color: #f57c00;
+}
+
+/* Mobile and responsive layout */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    .navbar ul {
+        display: block;
+        text-align: left;
+    }
+
+    .navbar ul li {
+        margin: 5px 0;
+    }
+
+    .navbar-link {
+        width: 100%;
+        text-align: center;
+    }
+
+    .dark-mode-toggle {
+        width: 100%;
+        margin-top: 10px;
+        text-align: center;
+    }
+}
