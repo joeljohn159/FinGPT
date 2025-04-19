@@ -2,11 +2,20 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    /* height: 100vh; */
     flex-direction: column;
     text-align: center;
     background-color: white;
     transition: background-color 0.3s ease;
+}
+
+.main-container {
+    height: 100vh;
+    overflow: hidden;
+}
+
+.dark-mode .main-container {
+    background-color: rgba(0, 0, 0, 0.709);
 }
 
 
