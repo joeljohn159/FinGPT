@@ -1,4 +1,4 @@
-# 💸 FinGPT – AI-Powered Financial Assistant (FinOracle Evolution)
+# 💸 FinGPT – AI-Powered Financial Assistant 
 
 FinGPT (aka FinOracle) is an advanced AI-powered financial assistant built to provide personalized insights and real-time financial data via a conversational interface. Combining ReactJS, Node.js, OpenAI APIs, and data analysis tools, this platform helps users make smarter financial decisions.
 
@@ -29,6 +29,9 @@ This hybrid training pipeline enables FinOracle to:
 - Deliver personalized insights in a user-friendly conversational format.
 
 ---
+
+![1111](https://github.com/user-attachments/assets/3e031372-e08f-4d88-b42e-a8a5cd57718c)
+
 
 ## 🧰 Tech Stack
 
